@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-form {
+    max-width: 40em;
+    margin: 2em auto;
+    border-right: 0.07em solid #eee;
+    box-shadow: #a5a5a5 0 0 5rem;
+    border-radius: 1em;
+}
+
+input {
+    display: none;
+}
+
+input:checked + .title-mem {
+    border: solid 0.07em;
+    color: #33423a;
+}
+
+input:checked + .fa.fa-window-close {
+    display: block;
+}
+
+.container-mem:hover .container-img {
+    height: 20em;
+}
+
+.container-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease;
+}
+
+.title-mem {
+    cursor: pointer;
+    width: 100%;
+    height: 2.5em;
+    border-radius: 1em;
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+
+}
+
+img {
+    max-width: 100%;
+}
+
+input:checked ~ .container-img img {
+    opacity: 0.8;
+}
+
+.fa.fa-window-close-o, .fa.fa-window-close,
+input:checked ~ .title-mem .fa.fa-window-close-o {
+    display: none;
+}
+
+.container-form:hover .fa.fa-window-close-o,
+input:checked ~ .title-mem .fa.fa-window-close {
+    display: block;
+}
+
+.container-img:active {
+    background-color: aliceblue;
+}
+
+input:checked ~ .container-img {
+    height: 100%;
+    opacity: 1;
+    margin: 0 0.75em;
+}
+
+input[type="radio"]:checked + .title-mem {
+    background-color: #6e8c82;
+    border: solid 0.07em #485d51;
+}
+
+
+@media (min-width: 550px) {
+
+    .title-mem {
+        font-size: 1.3rem;
+    }
+
+    input:hover ~ .box-mem {
+        height: 100%;
+        opacity: 1;
+        transition: 1.5s opacity, 1s visibility;
+    }
+
+    .container-img:hover {
+        background-color: aliceblue;
+    }
+
+    .title-mem:hover {
+        background: #aad2bb;
+        border: solid 0.07em #6e8c82;
+        transition: 1.5s opacity, 1s visibility;
+    }
+
+    img {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .title-mem {
+        font-size: 1rem;
+    }
+}
