@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .container-form {
     max-width: 40em;
     margin: 2em auto;
@@ -15,24 +22,41 @@ input {
 }
 
 input:checked + .title-mem {
-    border: solid 1px;
+    border: solid 0.07em;
     color: #33423a;
+}
+
+input:checked + .fa.fa-window-close{
+    display: block;
+}
+
+.container-mem:hover .test{
+    height: 20em;
+}
+
+.test{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+    border-radius: 10px;
+    padding: 0 0.7em;
 }
 
 .title-mem{
     cursor: pointer;
-    text-align: center;
-    border: solid 0.07em transparent;
     width: 100%;
     height: 2.5em;
     border-radius: 1em;
-    text-decoration: #485d51;
     font-weight: 700;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0 1em;
+
 }
 
 img{
@@ -47,27 +71,24 @@ img{
     display: block;
 }
 
-.box-mem {
-    height: 0;
-    overflow: hidden;
-    padding: 0 0.7em;
-    opacity: 0;
-    text-align: center;
-    transition: 0.55s opacity, 0.55s visibility;
+.box-mem:active{
+    background-color: aliceblue;
 }
 
-input:checked ~ .box-mem {
+input:checked ~ .test {
     height: 100%;
     opacity: 1;
-    margin: 0 12px;
+    margin: 0 0.75em;
 }
-
 
 input[type="radio"]:checked + .title-mem {
     background-color: #6e8c82;
     border: solid 0.07em #485d51;
 }
 
+input[type="radio"]:checked + .fa.fa-window-close {
+    display: block;
+}
 
 @media (min-width: 550px) {
 
@@ -77,7 +98,7 @@ input[type="radio"]:checked + .title-mem {
         transition: 1.5s opacity, 1s visibility;
     }
 
-    .box-mem:hover{
+    .test:hover{
         background-color: aliceblue;
     }
 
