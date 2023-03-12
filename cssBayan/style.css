@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,7 +13,7 @@
     max-width: 40em;
     margin: 2em auto;
     border-right: 0.07em solid #eee;
-    box-shadow: #a5a5a5 0 0 77px;
+    box-shadow: #a5a5a5 0 0 5rem;
     border-radius: 1em;
 }
 
@@ -26,31 +26,30 @@ input:checked + .title-mem {
     color: #33423a;
 }
 
-input:checked + .fa.fa-window-close{
+input:checked + .fa.fa-window-close {
     display: block;
 }
 
-.container-mem:hover .test{
+.container-mem:hover .container-img {
     height: 20em;
 }
 
-.test{
+.container-img {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 0;
     overflow: hidden;
-    transition: height 0.5s ease-in-out;
-    border-radius: 10px;
-    padding: 0 0.7em;
+    transition: height 0.5s ease;
 }
 
-.title-mem{
+.title-mem {
     cursor: pointer;
     width: 100%;
     height: 2.5em;
     border-radius: 1em;
     font-weight: 700;
+    font-size: 1.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -59,23 +58,29 @@ input:checked + .fa.fa-window-close{
 
 }
 
-img{
-    width: 50%;
+img {
+    max-width: 100%;
 }
 
-.fa.fa-window-close-o, .fa.fa-window-close{
+input:checked ~ .container-img img {
+    opacity: 0.8;
+}
+
+.fa.fa-window-close-o, .fa.fa-window-close,
+input:checked ~ .title-mem .fa.fa-window-close-o {
     display: none;
 }
 
-.container-form:hover .fa.fa-window-close-o{
+.container-form:hover .fa.fa-window-close-o,
+input:checked ~ .title-mem .fa.fa-window-close {
     display: block;
 }
 
-.box-mem:active{
+.container-img:active {
     background-color: aliceblue;
 }
 
-input:checked ~ .test {
+input:checked ~ .container-img {
     height: 100%;
     opacity: 1;
     margin: 0 0.75em;
@@ -86,11 +91,12 @@ input[type="radio"]:checked + .title-mem {
     border: solid 0.07em #485d51;
 }
 
-input[type="radio"]:checked + .fa.fa-window-close {
-    display: block;
-}
 
 @media (min-width: 550px) {
+
+    .title-mem {
+        font-size: 1.3rem;
+    }
 
     input:hover ~ .box-mem {
         height: 100%;
@@ -98,7 +104,7 @@ input[type="radio"]:checked + .fa.fa-window-close {
         transition: 1.5s opacity, 1s visibility;
     }
 
-    .test:hover{
+    .container-img:hover {
         background-color: aliceblue;
     }
 
@@ -106,5 +112,15 @@ input[type="radio"]:checked + .fa.fa-window-close {
         background: #aad2bb;
         border: solid 0.07em #6e8c82;
         transition: 1.5s opacity, 1s visibility;
+    }
+
+    img {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .title-mem {
+        font-size: 1rem;
     }
 }
